@@ -35,7 +35,7 @@ class CaseResult:
     case_number: int
     code_name: str
     title: str
-    seconds_elapsed: int
+    elapsed_seconds: int
     wrong_answers: int
     commands_used: int
     score: int
@@ -339,7 +339,7 @@ class CyberCasesGame:
             self.draw_case_card(preview_rect, self.cases[self.case_index + 1], "Up Next")
             footer_lines = ["Press Enter for the next case, R to replay this one, or Esc for the menu."]
         else:
-            footer_lines = ["All cases cleared. Press Enter to view the campaign summary, R to replay, or Esc for the menu."]
+            footer_lines = ["All cases cleared. Press Enter to view the game summary, R to replay, or Esc for the menu."]
 
         footer_rect = pygame.Rect(panel.x + 24, panel.bottom - 62, panel.width - 48, 36)
         self.draw_wrapped_text(footer_lines, footer_rect, self.small_font, (145, 198, 188))
@@ -347,7 +347,7 @@ class CyberCasesGame:
     def draw_game_complete(self) -> None:
         width, height = self.screen.get_size()
         panel = pygame.Rect(56, 56, width - 112, height - 112)
-        self.draw_panel(panel, "Campaign Complete")
+        self.draw_panel(panel, "Game Complete")
 
         title = self.title_font.render("Cipher High Secured", True, (91, 241, 196))
         self.screen.blit(title, (panel.x + 24, panel.y + 36))
@@ -358,7 +358,7 @@ class CyberCasesGame:
         metric_width = (panel.width - 48 - 14 * 3) // 4
         cards_y = panel.y + 108
         metrics = [
-            ("Rating", self.get_campaign_rating(total_score)),
+            ("Rating", self.get_game_rating(total_score)),
             ("Score", str(total_score)),
             ("Total Time", self.format_duration(total_time)),
             ("Mistakes", str(total_mistakes)),
@@ -375,8 +375,8 @@ class CyberCasesGame:
 
         footer_rect = pygame.Rect(panel.x + 24, panel.bottom - 96, panel.width - 48, 60)
         footer_lines = [
-            "You completed the full mini campaign and proved the prototype works as a small submission-ready game.",
-            "Press Enter to restart the campaign or Esc to return to the menu.",
+            "You completed the full game and proved your excellence in cracking cases!!",
+            "Press Enter to restart the game or Esc to return to the menu.",
         ]
         self.draw_wrapped_text(footer_lines, footer_rect, self.small_font, (205, 229, 226))
 
@@ -752,7 +752,7 @@ class CyberCasesGame:
         self.last_result = result
         self.active_case_completed = True
         if self.case_index == len(self.cases) - 1:
-            self.scene = "campaign_complete"
+            self.scene = "game_complete"
         else:
             self.scene = "case_complete"
     
