@@ -1,5 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass, field
+from pathlib import Path
+from cybercases.audio import AudioManager
 import pygame
 import base64
 import codecs
@@ -70,6 +72,8 @@ class CyberCasesGame:
         self.command_bar = pygame.Rect(0, 0, 0, 0)
         self.scroll_offsets: dict[str, int] = {}
         self.scroll_regions: dict[str, dict[str, object]] = {}
+        self.audio = AudioManager(Path(__file__).resolve().parent.parent / "assets" / "music")
+        self.audio.match_scene(self.scene)
 
     @property
     def current_case(self) -> CaseData:
@@ -164,6 +168,7 @@ class CyberCasesGame:
         if self.cursor_timer >= 0.5:
             self.cursor_timer = 0.0
             self.cursor_visible = not self.cursor_visible
+        self.audio.match_scene(self.scene)
 
     def draw(self) -> None:
         self.screen.fill((7,12,18))
