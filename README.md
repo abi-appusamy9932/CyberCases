@@ -35,8 +35,8 @@ python main.py
 
 ## Music Credits
 
-- `assets/music/menu_theme.mp3`: "Future Noir" by Eric Matyas, licensed CC-BY 4.0. Source: [OpenGameArt](https://opengameart.org/content/future-noir-looping)
-- `assets/music/case_theme.mp3`: "Enemy Infiltration" by Eric Matyas, licensed CC-BY 3.0. Source: [OpenGameArt](https://opengameart.org/content/enemy-infiltration-looping)
+- `assets/music/theme.mp3`: "Future Noir" by Eric Matyas, licensed CC-BY 4.0. Source: [OpenGameArt](https://opengameart.org/content/future-noir-looping)
+- `assets/music/case_music.mp3`: "Enemy Infiltration" by Eric Matyas, licensed CC-BY 3.0. Source: [OpenGameArt](https://opengameart.org/content/enemy-infiltration-looping)
 - Attribution requested by the artist: credit Eric Matyas and [soundimage.org](https://soundimage.org/)
 
 ## Project Direction
