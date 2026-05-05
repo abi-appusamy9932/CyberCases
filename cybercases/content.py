@@ -40,12 +40,12 @@ CASES = (
     CaseData(
         code_name= "CASE 01 // INBOX",
         title = "Phishing Invoice",
-        menu_blurb = "base64, email headers, phising response",
+        menu_blurb = "base64, email headers, phishing response",
         story_lines= (
             "A fake district IT message reached a faculty member's inbox before first period.",
             "Your history teacher, Mr. K, almost  opened an invoice attachment from a suspicious sender,",
              "but luckily asked the club for help first.",
-            "Your job is to decode the attachment token, and find the phising domain,",
+            "Your job is to decode the attachment token, and find the phishing domain,",
             "and recommend the best containment strategy.",
         ),
         terminal_tips= (
@@ -89,7 +89,8 @@ CASES = (
             PuzzleStep(
                 prompt = "Step 1: Identify the attachment payload name.",
                 answer = "invoice.zip",
-                success_message= "Payload confirmed."
+                success_message= "Payload confirmed.",
+                acceptable = ("invoice")
             ),
             PuzzleStep(
                 prompt = "Step 2: Find the name of the phishing sender domain to block.",
@@ -111,7 +112,7 @@ CASES = (
             )
         ),
         completion_lines = (
-            "You shut down the phishing wave before any creditials were collected.",
+            "You shut down the phishing wave before any credentials were collected.",
             "The club has all the required details and a clear response.",
             "CASE 01 completed!"
         )
